@@ -1,6 +1,5 @@
 package io.leantauth.springsecurityjdbc.services;
 
-import io.leantauth.springsecurityjdbc.models.CustomUserDetails;
 import io.leantauth.springsecurityjdbc.models.User;
 import io.leantauth.springsecurityjdbc.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,12 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
-        return new CustomUserDetails(user);
 
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getUsername())
+                .password(user.getPassword())
+                .roles(user.getRoles())
+                .disabled(!user.isActive())
+                .build();
     }
 }
