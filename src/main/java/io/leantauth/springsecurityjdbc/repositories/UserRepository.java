@@ -1,4 +1,4 @@
-package io.leantauth.springsecurityjdbc;
+package io.leantauth.springsecurityjdbc.repositories;
 
 import io.leantauth.springsecurityjdbc.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;

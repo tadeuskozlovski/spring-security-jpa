@@ -1,7 +1,8 @@
-package io.leantauth.springsecurityjdbc;
+package io.leantauth.springsecurityjdbc.services;
 
 import io.leantauth.springsecurityjdbc.models.CustomUserDetails;
 import io.leantauth.springsecurityjdbc.models.User;
+import io.leantauth.springsecurityjdbc.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
